@@ -277,7 +277,7 @@ func BenchmarkDecodeFuncCallOverheadDecoderCall(b *testing.B) {
 }
 
 func BenchmarkDecodeFuncCallOverheadArrayCall(b *testing.B) {
-	EthernetTypeMetadata[1] = EnumMetadata{DecodeWith: gopacket.DecodeFunc(testDecoder)}
+	EthernetTypeMetadata[1] = &EnumMetadata{DecodeWith: gopacket.DecodeFunc(testDecoder)}
 	d := EthernetType(1)
 	var data []byte
 	var pb gopacket.PacketBuilder

@@ -411,7 +411,7 @@ func init() {
 		DecodeWith: errorFunc("Unable to decode FDDI frame control"),
 		Name:       "UnknownFDDIFrameControl",
 	}
-	unknownEAPOLType = &EnumMetadata{
+	unknownEAPOLType := &EnumMetadata{
 		DecodeWith: errorFunc("Unable to decode EAPOL type"),
 		Name:       "UnknownEAPOLType",
 	}
