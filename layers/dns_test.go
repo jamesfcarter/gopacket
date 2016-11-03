@@ -11,7 +11,7 @@ import (
 	"net"
 	"testing"
 
-	"github.com/google/gopacket"
+	"github.com/jamesfcarter/gopacket"
 )
 
 // testPacketDNSRegression is the packet:

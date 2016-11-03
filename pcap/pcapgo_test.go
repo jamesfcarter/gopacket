@@ -8,9 +8,9 @@ package pcap
 
 import (
 	"bytes"
-	"github.com/google/gopacket"
-	"github.com/google/gopacket/layers"
-	"github.com/google/gopacket/pcapgo"
+	"github.com/jamesfcarter/gopacket"
+	"github.com/jamesfcarter/gopacket/layers"
+	"github.com/jamesfcarter/gopacket/pcapgo"
 	"io/ioutil"
 	"reflect"
 	"testing"
