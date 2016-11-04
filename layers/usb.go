@@ -82,7 +82,7 @@ const (
 )
 
 func (a USBTransportType) LayerType() gopacket.LayerType {
-	return USBTypeMetadata[a].LayerType
+	return USBTypeMetadata.LayerType
 }
 
 func (a USBTransportType) String() string {
