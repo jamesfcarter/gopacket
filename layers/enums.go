@@ -276,93 +276,93 @@ var (
 	// TCP decoder, you can override IPProtocolMetadata[IPProtocolTCP].DecodeWith
 	// with your new decoder, and all gopacket/layers decoding will use your new
 	// decoder whenever they encounter that IPProtocol.
-	EthernetTypeMetadata     [2049]*EnumMetadata
-	IPProtocolMetadata       [137]*EnumMetadata
-	SCTPChunkTypeMetadata    [1]*EnumMetadata
-	PPPTypeMetadata          [1]*EnumMetadata
-	PPPoECodeMetadata        [1]*EnumMetadata
-	LinkTypeMetadata         [1]*EnumMetadata
-	FDDIFrameControlMetadata [1]*EnumMetadata
-	EAPOLTypeMetadata        [1]*EnumMetadata
-	ProtocolFamilyMetadata   [1]*EnumMetadata
-	Dot11TypeMetadata        [1]*EnumMetadata
-	USBTypeMetadata          [1]*EnumMetadata
+	EthernetTypeMetadata     EnumMetadata
+	IPProtocolMetadata       EnumMetadata
+	SCTPChunkTypeMetadata    EnumMetadata
+	PPPTypeMetadata          EnumMetadata
+	PPPoECodeMetadata        EnumMetadata
+	LinkTypeMetadata         EnumMetadata
+	FDDIFrameControlMetadata EnumMetadata
+	EAPOLTypeMetadata        EnumMetadata
+	ProtocolFamilyMetadata   EnumMetadata
+	Dot11TypeMetadata        EnumMetadata
+	USBTypeMetadata          EnumMetadata
 )
 
 func (a EthernetType) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return EthernetTypeMetadata[a].DecodeWith.Decode(data, p)
+	return EthernetTypeMetadata.DecodeWith.Decode(data, p)
 }
 func (a EthernetType) String() string {
-	return EthernetTypeMetadata[a].Name
+	return EthernetTypeMetadata.Name
 }
 func (a EthernetType) LayerType() gopacket.LayerType {
-	return EthernetTypeMetadata[a].LayerType
+	return EthernetTypeMetadata.LayerType
 }
 func (a IPProtocol) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return IPProtocolMetadata[a].DecodeWith.Decode(data, p)
+	return IPProtocolMetadata.DecodeWith.Decode(data, p)
 }
 func (a IPProtocol) String() string {
-	return IPProtocolMetadata[a].Name
+	return IPProtocolMetadata.Name
 }
 func (a IPProtocol) LayerType() gopacket.LayerType {
-	return IPProtocolMetadata[a].LayerType
+	return IPProtocolMetadata.LayerType
 }
 func (a SCTPChunkType) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return SCTPChunkTypeMetadata[a].DecodeWith.Decode(data, p)
+	return SCTPChunkTypeMetadata.DecodeWith.Decode(data, p)
 }
 func (a SCTPChunkType) String() string {
-	return SCTPChunkTypeMetadata[a].Name
+	return SCTPChunkTypeMetadata.Name
 }
 func (a PPPType) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return PPPTypeMetadata[a].DecodeWith.Decode(data, p)
+	return PPPTypeMetadata.DecodeWith.Decode(data, p)
 }
 func (a PPPType) String() string {
-	return PPPTypeMetadata[a].Name
+	return PPPTypeMetadata.Name
 }
 func (a LinkType) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return LinkTypeMetadata[a].DecodeWith.Decode(data, p)
+	return LinkTypeMetadata.DecodeWith.Decode(data, p)
 }
 func (a LinkType) String() string {
-	return LinkTypeMetadata[a].Name
+	return LinkTypeMetadata.Name
 }
 func (a PPPoECode) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return PPPoECodeMetadata[a].DecodeWith.Decode(data, p)
+	return PPPoECodeMetadata.DecodeWith.Decode(data, p)
 }
 func (a PPPoECode) String() string {
-	return PPPoECodeMetadata[a].Name
+	return PPPoECodeMetadata.Name
 }
 func (a FDDIFrameControl) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return FDDIFrameControlMetadata[a].DecodeWith.Decode(data, p)
+	return FDDIFrameControlMetadata.DecodeWith.Decode(data, p)
 }
 func (a FDDIFrameControl) String() string {
-	return FDDIFrameControlMetadata[a].Name
+	return FDDIFrameControlMetadata.Name
 }
 func (a EAPOLType) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return EAPOLTypeMetadata[a].DecodeWith.Decode(data, p)
+	return EAPOLTypeMetadata.DecodeWith.Decode(data, p)
 }
 func (a EAPOLType) String() string {
-	return EAPOLTypeMetadata[a].Name
+	return EAPOLTypeMetadata.Name
 }
 func (a EAPOLType) LayerType() gopacket.LayerType {
-	return EAPOLTypeMetadata[a].LayerType
+	return EAPOLTypeMetadata.LayerType
 }
 func (a ProtocolFamily) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return ProtocolFamilyMetadata[a].DecodeWith.Decode(data, p)
+	return ProtocolFamilyMetadata.DecodeWith.Decode(data, p)
 }
 func (a ProtocolFamily) String() string {
-	return ProtocolFamilyMetadata[a].Name
+	return ProtocolFamilyMetadata.Name
 }
 func (a ProtocolFamily) LayerType() gopacket.LayerType {
-	return ProtocolFamilyMetadata[a].LayerType
+	return ProtocolFamilyMetadata.LayerType
 }
 func (a Dot11Type) Decode(data []byte, p gopacket.PacketBuilder) error {
-	return Dot11TypeMetadata[a].DecodeWith.Decode(data, p)
+	return Dot11TypeMetadata.DecodeWith.Decode(data, p)
 }
 func (a Dot11Type) String() string {
-	return Dot11TypeMetadata[a].Name
+	return Dot11TypeMetadata.Name
 }
 func (a Dot11Type) LayerType() gopacket.LayerType {
-	return Dot11TypeMetadata[a].LayerType
+	return Dot11TypeMetadata.LayerType
 }
 
 // Decode a raw v4 or v6 IP packet.
@@ -379,7 +379,7 @@ func decodeIPv4or6(data []byte, p gopacket.PacketBuilder) error {
 
 func init() {
 	// Here we link up all enumerations with their respective names and decoders.
-	EthernetTypeMetadata[EthernetTypeIPv4] = &EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeIPv4), Name: "IPv4", LayerType: LayerTypeIPv4}
-	IPProtocolMetadata[IPProtocolUDP] = &EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeUDP), Name: "UDP", LayerType: LayerTypeUDP}
+	EthernetTypeMetadata = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeIPv4), Name: "IPv4", LayerType: LayerTypeIPv4}
+	IPProtocolMetadata = EnumMetadata{DecodeWith: gopacket.DecodeFunc(decodeUDP), Name: "UDP", LayerType: LayerTypeUDP}
 
 }
